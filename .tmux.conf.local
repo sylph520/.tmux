@@ -24,7 +24,7 @@ tmux_conf_new_window_retain_current_path=false
 # new pane retains current path, possible values are:
 #   - true (default)
 #   - false
-tmux_conf_new_pane_retain_current_path=false
+tmux_conf_new_pane_retain_current_path=true
 
 # new pane tries to reconnect ssh sessions (experimental), possible values are:
 #   - true
@@ -294,3 +294,24 @@ set -g mode-keys vi
 
 # move status line to top
 #set -g status-position top
+
+# vim-like pane resizing  
+bind -r C-k resize-pane -U
+bind -r C-j resize-pane -D
+bind -r C-h resize-pane -L
+bind -r C-l resize-pane -R
+# vim-like pane switching
+bind -r k select-pane -U 
+bind -r j select-pane -D 
+bind -r h select-pane -L 
+bind -r l select-pane -R 
+# and now unbind keys
+unbind Up     
+unbind Down   
+unbind Left   
+unbind Right  
+
+unbind C-Up   
+unbind C-Down 
+unbind C-Left 
+unbind C-Right
